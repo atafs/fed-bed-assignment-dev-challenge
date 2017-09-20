@@ -8,6 +8,7 @@ export default () => {
             <div className="container-fluid">
                 <div id="navbar" className="navbar-collapse collapse">
                     <ul className="nav navbar-nav navbar-right">
+                        <li><Link to="/">Home</Link></li>
                         <li><Link to="/product-info">Transaction</Link></li>
                     </ul>
                 </div>

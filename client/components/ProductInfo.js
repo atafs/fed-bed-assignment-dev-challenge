@@ -5,15 +5,37 @@ import { connect } from 'react-redux';
 import { fetchProducts } from '../actions/fetchProducts';
 
 class ProductInfo extends Component {
+  constructor() {
+    super();
+
+    const request = fetchProducts();
+    console.log('request', request);
+
+    this.state = {
+      transaction: request
+    }
+  }
   renderTransaction() {
+    console.log('state', this.state);
+    console.log(this.state.transaction.data);
+
+    const data = this.state.transaction.data[0]
+      ? this.state.transaction.data[0]
+      : null
+
+    const dataHeader = data
+      ? <div className="form-group col-md-6">
+            <h2>{`${data.device.type}, ${data.device.os}, ${data.device.model}`}</h2>
+            <h2>{`${data.location.latitude}, ${data.location.longitude}`}</h2>
+            <h2>{`${data.transaction.type}, ${data.transaction.time}`}</h2>
+        </div>
+      : null
+
     return (
       <div>
         <form>
             <div className="row">
-                <div className="form-group col-md-6">
-                    <label>Supplier</label>
-
-                </div>
+                { dataHeader}
             </div>
         </form>
       </div>
@@ -37,11 +59,4 @@ class ProductInfo extends Component {
   }
 }
 
-function mapStateToProps() {
-  const request = fetchProducts();
-  return {
-    products: request.data
-  };
-}
-
-export default connect(mapStateToProps, { fetchProducts })(ProductInfo);
+export default connect(null, { fetchProducts })(ProductInfo);
