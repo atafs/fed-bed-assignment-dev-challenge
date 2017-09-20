@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const FETCH_PRODUCTS = 'fetch_products';
 
-const ROOT_URL = '/api/products';
+const ROOT_URL = '/transaction';
 const data = []
 
 export function fetchProducts() {
