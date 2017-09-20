@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   const deviceType = ["smart-phone", "feature_phone", "browser"];
   const randomDeviceType = Math.floor(Math.random() * 3);
 
-  const transation = {
+  const transaction = {
     "userId" : "bob",
     "transaction" : {
         "type": "login",
@@ -23,41 +23,9 @@ router.get('/', (req, res) => {
       "model" : "iPhone 7"
     }
   }
-  console.log(transation)
+  console.log(transaction)
 
-  const products = [
-    { "Supplier": "New Co Ltd",
-    "Product": "Small wongle",
-    "Price": "5"
-    },
-    { "Supplier": "Old Co Ltd",
-    "Product": "Mini wongle",
-    "Price": "4"
-    },
-    { "Supplier": "New Co Ltd",
-    "Product": "Large wongle",
-    "Price": "8"
-    },
-    { "Supplier": "Old Co Ltd",
-    "Product": "Small wongle",
-    "Price": "6"
-    },
-    { "Supplier": "New Co Ltd",
-    "Product": "Super wongle",
-    "Price": "12"
-    },
-    { "Supplier": "Old Co Ltd",
-    "Product": "Large wongle",
-    "Price": "9"
-    },
-    { "Supplier": "Old Co Ltd",
-    "Product": "Super wongle",
-    "Price": "13"
-    }
-  ]
-  console.log(products)
-
-  res.send(products)
+  res.send(transaction)
 });
 
 export default router;
